@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(["middleware" => "api"], function () {
-    Route::post('regist', 'Api\AuthController@regist');
-    Route::post('login', 'Api\AuthController@login');
-    Route::group(['middleware' => ['jwt.auth']], function () {
-        Route::post('logout', 'Api\AuthController@logout');
-        Route::post('refresh', 'Api\AuthController@refresh');
-        Route::post('me', 'Api\AuthController@me');
-    });
+Route::post('login', 'Api\AuthController@login');
+Route::get('hello', 'Api\TestController@hello');
+Route::get('refresh', 'Api\AuthController@refresh');
+
+Route::group(['middleware' => ['jwt.auth']], function () {
+    Route::post('logout', 'Api\AuthController@logout');
+    Route::get('me', 'Api\AuthController@me');
+    Route::post('echo', 'Api\TestController@echo');
 });
