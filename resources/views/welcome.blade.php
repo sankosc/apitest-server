@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>API Test : SankoSC</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -21,7 +21,7 @@
             }
 
             .full-height {
-                height: 100vh;
+                height: 200vh;
             }
 
             .flex-center {
@@ -70,8 +70,6 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
@@ -80,19 +78,73 @@
             @endif
 
             <div class="content">
+                SankoSC
                 <div class="title m-b-md">
-                    Laravel
+                    API Test
+                </div>
+
+                <div class="m-b-md">
+                    APIのテスト用のサーバーです。以下のAPIがテスト用として利用できます。<br/><br/>
+                    認証ありのAPIは、ログイン時に受け取ったAccessTokenをヘッダに含めます。<br/>
+                    Authorization: Bearer [Access Token]<br/><br/>
+                    認証は1分で切れるようにしてあるので、リフレッシュの確認はログイン後1分後に実施できます。<br/><br/>
+                </div>
+                
+                <div  class="m-b-md">
+                    <b>Hello</b><br/>
+                    GET: 認証なし<br/>
+                    [URI] /api/hello<br/>
+                    [Response] {"message":"hello"}
+                </div>
+
+                <div  class="m-b-md">
+                    <b>Login</b><br/>
+                    POST: 認証なし<br/>
+                    [URI] /api/login<br/>
+                    [Request] {"email":"sample@sankosc.co.jp","password":"sample123"}<br/>
+                    [Response] {"access_token":"[your access token]","token_type":"bearer","expires_in":60}
+                </div>
+
+                <div  class="m-b-md">
+                    <b>Me</b><br/>
+                    GET: 認証あり<br/>
+                    [URI] /api/me<br/>
+                    [Response] {"id":1,"name":"sample","email":"sample@sankosc.co.jp","email_verified_at":null,"created_at":"2020-05-12T08:43:24.000000Z","updated_at":"2020-05-12T08:43:24.000000Z"}
+                </div>
+
+                <div  class="m-b-md">
+                    <b>Echo</b><br/>
+                    POST: 認証あり<br/>
+                    [URI] /api/echo<br/>
+                    [Request] {"message":"This is test message."}<br/>
+                    [Response] {"message":"This is test message."}
+                </div>
+
+                
+                <div  class="m-b-md">
+                    <b>Logout</b><br/>
+                    POST: 認証あり<br/>
+                    [URI] /api/logout<br/>
+                    [Request] {}<br/>
+                    [Response] {"message":"Successfully logged out"}
+                </div>
+
+                <div  class="m-b-md">
+                    <b>Refresh</b><br/>
+                    GET: Refresh Tokenの期限が切れていない状態<br/>
+                    [URI] /api/refresh<br/>
+                    [Response] {"access_token":"[your access token]","token_type":"bearer","expires_in":60}
+                </div>
+
+                <div  class="m-b-md">
+                    Sanko System Co.,Ltd.<br/>
+                    created: 2020/05/12<br/>
+                    updated: 2020/05/18
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/sankosc/apitest-server">GitHub</a>
+                    <a href="https://qiita.com/nozaki-sankosc/items/7ed320d6549f5f92b9b9">構築手順</a>
                 </div>
             </div>
         </div>
