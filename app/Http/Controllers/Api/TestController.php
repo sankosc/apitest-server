@@ -20,4 +20,11 @@ class TestController extends Controller
             'message' => $request->input('message')
         ]);
     }
+
+    public function reverse(Request $request)
+    {
+        return response()->json([
+            'message' => strrev($request->input('message'))
+        ]);
+    }
 }

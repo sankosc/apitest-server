@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'Api\AuthController@login');
 Route::get('hello', 'Api\TestController@hello');
+Route::post('echo', 'Api\TestController@echo');
 Route::get('refresh', 'Api\AuthController@refresh');
 
 Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post('logout', 'Api\AuthController@logout');
     Route::get('me', 'Api\AuthController@me');
-    Route::post('echo', 'Api\TestController@echo');
+    Route::post('reverse', 'Api\TestController@reverse');
 });

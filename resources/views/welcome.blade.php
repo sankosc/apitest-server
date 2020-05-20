@@ -98,6 +98,14 @@
                 </div>
 
                 <div  class="m-b-md">
+                    <b>Echo</b><br/>
+                    POST: 認証なし<br/>
+                    [URI] /api/echo<br/>
+                    [Request] {"message":"This is test message."}<br/>
+                    [Response] {"message":"This is test message."}
+                </div>
+
+                <div  class="m-b-md">
                     <b>Login</b><br/>
                     POST: 認証なし<br/>
                     [URI] /api/login<br/>
@@ -113,14 +121,13 @@
                 </div>
 
                 <div  class="m-b-md">
-                    <b>Echo</b><br/>
+                    <b>Reverse</b><br/>
                     POST: 認証あり<br/>
-                    [URI] /api/echo<br/>
+                    [URI] /api/reverse<br/>
                     [Request] {"message":"This is test message."}<br/>
-                    [Response] {"message":"This is test message."}
+                    [Response] {"message":".egassem tset si sihT"}
                 </div>
 
-                
                 <div  class="m-b-md">
                     <b>Logout</b><br/>
                     POST: 認証あり<br/>
